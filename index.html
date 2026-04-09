@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@dicarvalho.prof | Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --mars-rubi: #c20000;
+            --mars-bg: #000000;
+            --mars-card: #0a0a0a;
+            --mars-border: #1a1a1a;
+            --mars-glow: rgba(194, 0, 0, 0.2);
+            --mars-glow-hover: rgba(194, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--mars-bg);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 15px;
+        }
+
+        /* Perfil */
+        .profile-container {
+            width: 110px;
+            height: 110px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--mars-rubi);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-color: #111;
+        }
+
+        .profile-pic.loaded {
+            opacity: 1;
+        }
+
+        .username {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        /* Efeito Typewriter */
+        .tagline-container {
+            height: 20px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 14px;
+            background-color: var(--mars-rubi);
+            margin-left: 4px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Grid de Links */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* Design dos Cards Quadrados */
+        .link-card {
+            aspect-ratio: 1 / 1; /* Força o formato quadrado */
+            background: linear-gradient(145deg, #0f0f0f, #050505);
+            border: 1px solid var(--mars-border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 10px var(--mars-glow);
+        }
+
+        .link-card:hover {
+            border-color: var(--mars-rubi);
+            transform: translateY(-4px);
+            background: #0f0f0f;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 20px var(--mars-glow-hover);
+        }
+
+        /* Ícone centralizado e maior */
+        .link-card i {
+            font-size: 1.8rem;
+            color: var(--mars-rubi);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Texto do card */
+        .link-card span {
+            font-size: 0.8rem;
+            line-height: 1.2;
+            font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limita a 3 linhas para não quebrar o quadrado */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Social Icons */
+        .social-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        .footer-logo {
+            margin-top: 40px;
+            padding-bottom: 20px;
+            font-size: 0.65rem;
+            color: #333;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Perfil -->
+    <div class="profile-container">
+        <img 
+            src="https://images2.imgbox.com/eb/a4/pvbCI6HQ_o.jpg" 
+            alt="Diandra Carvalho" 
+            class="profile-pic" 
+            id="profileImg"
+        >
+    </div>
+    
+    <h1 class="username">@dicarvalho<span style="color:var(--mars-rubi)">.</span>prof</h1>
+    
+    <div class="tagline-container">
+        <p class="tagline" id="typewriter"></p><span class="cursor" id="cursor"></span>
+    </div>
+
+    <!-- Grid de Links -->
+    <div class="links-grid">
+        <a href="https://wa.me/5516993272278" class="link-card">
+            <i class="fab fa-whatsapp"></i>
+            <span>Falar com a Di</span>
+        </a>
+         <a href="https://sites.google.com/view/profdiandradeingles/m%C3%A9todo" class="link-card">
+            <i class="fas fa-dna"></i>
+            <span>Conhecer método</span>
+        </a>
+        
+      <a href="https://sites.google.com/view/profdiandradeingles/teste-seu-estilo-de-aprendizagem" class="link-card">
+            <i class="fa-solid fa-brain"></i>
+            <span>Perfil de Aprendizagem</span>
+        </a>
+
+        <a href="https://sites.google.com/view/profdiandradeingles/teste-seu-n%C3%ADvel-de-ingl%C3%AAs" class="link-card">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>Testar nível de Inglês</span>
+        </a>
+
+        <a href="https://sites.google.com/view/profdiandradeingles/biblioteca" class="link-card">
+            <i class="fas fa-book-open"></i>
+            <span>Biblioteca</span>
+        </a>
+
+        <a href="https://sites.google.com/view/profdiandradeingles/sou-aluno" class="link-card">
+            <i class="fas fa-user-graduate"></i>
+            <span>Área do Aluno</span>
+        </a>
+
+        <a href="https://sites.google.com/view/languagelabbr/in%C3%ADcio" class="link-card">
+            <i class="fas fa-flask"></i>
+            <span>Language Lab</span>
+        </a>
+
+        <a href="https://www.youtube.com/@Diandraprof" class="link-card">
+            <i class="fab fa-youtube"></i>
+            <span>Di no youtube</span>
+        </a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-container">
+        <a href="https://www.instagram.com/dicarvalho.prof/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@Diandraprof" class="social-icon"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <div class="footer-logo">
+        Education of the Future
+    </div>
+
+    <script>
+        // Lógica da Animação Typewriter
+        const text = "Aprenda com ciência de verdade";
+        const delay = 100;
+        const element = document.getElementById("typewriter");
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, delay);
+            }
+        }
+
+        window.onload = function() {
+            const img = document.getElementById('profileImg');
+            // Forçar carregamento suave da imagem
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.onload = function() {
+                    img.classList.add('loaded');
+                };
+            }
+            typeWriter();
+        };
+    </script>
+</body>
+</html>
